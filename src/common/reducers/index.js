@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
 
-import todo from '@components/About/reducer';
+const todo = (state = {}, action) => {
+  return state;
+}
 
 const composedReducer = combineReducers({
   todo

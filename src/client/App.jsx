@@ -3,16 +3,15 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { hot } from 'react-hot-loader/root'
 
-import { Routes } from '@common/Routes'
+import { Routes } from '@common/routes'
 import configureStore from '@common/store'
 
-export default hot(() => (
+const App = () => (
   <Provider store={configureStore(window.defaultState)}>
     <BrowserRouter>
-      { Routes }
+      {Routes}
     </BrowserRouter>
   </Provider>
-))
+)
 
-
-
+export default hot(App)

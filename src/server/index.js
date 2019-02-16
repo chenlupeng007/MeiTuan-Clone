@@ -1,10 +1,16 @@
 import Koa from 'koa'
-import hmrMiddleware from '@server/middlewares/hmr.js'
-import todoList from '@server/middlewares/api'
+import applyDevMids from './applyDevMids'
+import applyProdMids from './applyProdMids'
+
+const isProduction = process.env.NODE_ENV === 'production';
 
 const app = new Koa()
 
-app.use(todoList.routes()).use(todoList.allowedMethods())
-hmrMiddleware(app)
+if (isProduction) {
+  applyProdMids(app)
+} else {
+  applyDevMids(app)
+}
 
-app.listen(3000)
+app.listen(3000, () => console.log('listen on port: 3000')
+)

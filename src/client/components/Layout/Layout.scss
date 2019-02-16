@@ -1,0 +1,17 @@
+:global(.ant-layout-header),
+:global(.ant-layout-footer) {
+  background: #fff;
+  color: #7dbcea;
+  height: 60px;
+}
+
+:global(.ant-layout-content) {
+  background: rgba(16, 142, 233, 1);
+  color: #fff;
+  height: calc(100% - 120px);
+}
+
+:global(.ant-layout) {
+  height: 100vh;
+}
+

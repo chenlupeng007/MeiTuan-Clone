@@ -4,6 +4,7 @@
     "@babel/preset-react"
   ],
   "plugins": [
+    "@babel/plugin-proposal-export-default-from",
     "react-hot-loader/babel",
     ["module-resolver", {
       "root": ["./"],
@@ -12,7 +13,8 @@
         "@server": "./src/server/",
         "@common": "./src/common/",
         "@components": "./src/client/components",
-        "@hco": "./src/client/hco",
+        "@hoc": "./src/common/hoc",
+        "@antd": "./src/common/antdStyles",
         "@webpack": "./webpack.config.babel.js",
         "@serverRender": "./dist/server.js"
       }

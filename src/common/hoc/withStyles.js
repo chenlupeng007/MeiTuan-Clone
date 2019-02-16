@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 
-const withStyle = (DecoratedComponent, styles) => {
+const withStyles = (DecoratedComponent, ...styles) => {
   return class extends Component {
     componentWillMount() {
       if(this.props.staticContext) {
-        this.props.staticContext.css.push(styles._getCss())
+        styles.map((item) => this.props.staticContext.css.push(item._getCss()))
       }
     }
 
@@ -14,4 +14,4 @@ const withStyle = (DecoratedComponent, styles) => {
   }
 }
 
-export default withStyle
+export default withStyles

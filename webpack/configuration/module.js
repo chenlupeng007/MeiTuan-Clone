@@ -16,7 +16,23 @@ export default type => ({
       use: 'babel-loader'
     },
     {
+      test: /\.css$/,
+      use: [
+        {
+          loader: loader(type)
+        },
+        {
+          loader: 'css-loader',
+          options: {
+            modules: 'global',
+            sourceMap: isDevelopment
+          }
+        },
+      ]
+    },
+    {
       test: /\.scss$/,
+      exclude: /node_modules/,
       use: [
         {
           loader: loader(type)
@@ -33,6 +49,6 @@ export default type => ({
           loader: 'sass-loader'
         }
       ]
-    }
+    },
   ]
 });

@@ -17,11 +17,10 @@ if (!isDevelopment) {
       filename: '[path].gz[query]',
       algorithm: 'gzip',
       test: /\.js$|\.css$|\.jsx|\.html$/,
-      threshold: 10240,
       minRatio: 0.8
     })
   );
-} else if(isAnalyzer) {
+} else if (isAnalyzer) {
   plugins.push(
     new BundleAnalyzerPlugin()
   );

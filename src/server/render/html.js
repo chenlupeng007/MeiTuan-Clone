@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { renderToString } from 'react-dom/server';
 import { matchRoutes } from 'react-router-config'
 
-import { Routes, routes } from '@common/Routes'
+import { Routes, routes } from '@common/routes'
 import configureStore from '@common/store'
 
 const isProduction = process.env.NODE_ENV === 'production';
@@ -30,6 +30,8 @@ const getInitialState = async (path) => {
 const html = async (path) => {
   const Path = isProduction ? 'app/': '';
   const link = isProduction ? `<link rel="stylesheet" href="${Path}css/main.css" />` : '';
+  const linkVendor = isProduction ? `<link rel="stylesheet" href="${Path}css/vendor.css" />` : '';
+
 
   const store = await getInitialState(path)
   const context = {
@@ -46,7 +48,9 @@ const html = async (path) => {
 
   const content = renderToString(<App />)
 
-  const cssString = context.css.length > 0 ?context.css.join('\n') : ''
+  const cssString = context.css.length > 0 ? context.css.join('\n') : ''
+
+  const css = cssString.replace(/[\r\n]/g, '')
 
   return `
     <!DOCTYPE html>
@@ -55,8 +59,9 @@ const html = async (path) => {
         <meta charset="utf-8">
         <title>App Name</title>
         <style>
-          ${ cssString }
+          ${css}
         </style>
+        ${linkVendor}
         ${link}
       </head>
       <body>
