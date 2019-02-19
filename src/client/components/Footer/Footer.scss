@@ -1,0 +1,110 @@
+.footer {
+  background: #f8f8f8;
+
+  .content {
+    width: 1190px;
+    margin: 0 auto;
+    color: #333;
+    font-size: 12px;
+    line-height: 2;
+    box-sizing: border-box;
+    text-align: left
+
+    p {
+      margin: 0;
+    }
+
+    .link {
+      padding: 40px 45px;
+      border-bottom: 1px solid #E5E5E5;
+
+      .column {
+        width: 20%;
+        float: left;
+      }
+
+      dl {
+        padding-bottom: 20px;
+        color: #666;
+
+        dt {
+          font-size: 14px;
+          font-weight: 500;
+        }
+
+        a {
+          color: #666;
+
+          &:hover {
+            color: #31BBAC;
+          }
+        }
+      }
+    }
+
+    .copyright {
+      background: red;
+      color: #999;
+      padding-left: 20px;
+      padding-top: 15px;
+      padding-bottom: 30px;
+      line-height: 1.6;
+
+      a {
+        color: #999;
+
+        &:hover {
+          color: #31BBAC;
+        }
+      }
+
+      .left {
+        float: left;
+      }
+
+      .right {
+        float: right;
+        text-align: right;
+      }
+
+      .cert {
+        text-align: left;
+        padding-top: 6px;
+
+        a {
+          :global(.sp-ft) {
+            display: inline-block;
+            overflow: hidden;
+            text-indent: -1000px;
+            height: 38px;
+            background-repeat: no-repeat;
+            margin-right: 2px;
+          }
+        }
+
+        :global(.sp-ft--record) {
+          width: 109px;
+          background-position: 0 -167px;
+        }
+
+        :global(.sp-ft--knet) {
+          width: 107px;
+          background-position: 0 -127px;
+        }
+
+        :global(.sp-ft--12315) {
+          width: 107px;
+          background-position: 0 -40px;
+        }
+      }
+    }
+  }
+
+  .clearfix:after {
+    content: " ";
+    visibility: hidden;
+    display: block;
+    height: 0;
+    clear: both;
+  }
+}

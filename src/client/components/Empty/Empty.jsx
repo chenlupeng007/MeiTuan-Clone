@@ -1,5 +1,6 @@
 import React from 'react'
 import { renderRoutes } from 'react-router-config'
+
 import { withStyles } from '@hoc';
 import commonStyle from 'antd/lib/style/index.css';
 

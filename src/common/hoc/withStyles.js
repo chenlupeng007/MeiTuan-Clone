@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
+import withStatic from './withStatic'
 
 const withStyles = (DecoratedComponent, ...styles) => {
-  return class extends Component {
+  class NewComponent extends Component {
     componentWillMount() {
       if(this.props.staticContext) {
         styles.map((item) => this.props.staticContext.css.push(item._getCss()))
@@ -12,6 +13,10 @@ const withStyles = (DecoratedComponent, ...styles) => {
       return <DecoratedComponent { ...this.props } />
     }
   }
+
+  NewComponent.loadData = DecoratedComponent.loadData;
+
+  return withStatic(NewComponent)
 }
 
 export default withStyles

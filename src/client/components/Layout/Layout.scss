@@ -1,17 +1,30 @@
-:global(.ant-layout-header),
-:global(.ant-layout-footer) {
-  background: #fff;
-  color: #7dbcea;
-  height: 60px;
-}
-
-:global(.ant-layout-content) {
-  background: rgba(16, 142, 233, 1);
-  color: #fff;
-  height: calc(100% - 120px);
+:global(body *){
+  margin: 0;
+  padding: 0;
 }
 
 :global(.ant-layout) {
   height: 100vh;
-}
+  background-color: #fff;
 
+
+  :global(a) {
+    color: #999;
+  }
+
+  :global(.ant-layout-header) {
+    padding: 0;
+    color: #999;
+    font-size: 12px;
+    height: auto;
+    background-color: rgb(248, 248, 248);
+  }
+
+  :global(.ant-layout-footer) {
+    background-color: rgb(248, 248, 248);
+  }
+
+  :global(.ant-layout-content) {
+    height: calc(100% - 80px);
+  }
+}

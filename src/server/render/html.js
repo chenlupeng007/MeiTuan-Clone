@@ -50,7 +50,7 @@ const html = async (path) => {
 
   const cssString = context.css.length > 0 ? context.css.join('\n') : ''
 
-  const css = cssString.replace(/[\r\n]/g, '')
+  const css = cssString.replace(/[\n]/g, '\n\t\t')
 
   return `
     <!DOCTYPE html>
