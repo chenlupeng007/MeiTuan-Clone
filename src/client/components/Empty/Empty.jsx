@@ -1,7 +1,7 @@
 import React from 'react'
 import { renderRoutes } from 'react-router-config'
 
-import { withStyles } from '@hoc';
+import withStyles from '@hoc/withStyles';
 import commonStyle from 'antd/lib/style/index.css';
 
 const Empty = (props) => (

@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import { withStyles } from '@hoc'
+import withStyles from '@hoc/withStyles';
+
 import styles from './Nav.scss'
 
 const Nav = () => (

@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
 
-const todo = (state = {}, action) => {
-  return state;
-}
+import menu from '@components/Home/reducer'
+import header from '@components/Header/reducer'
 
 const composedReducer = combineReducers({
-  todo
+  menu,
+  header
 });
 
 export default composedReducer;

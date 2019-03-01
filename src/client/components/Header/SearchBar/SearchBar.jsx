@@ -2,9 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import { Row, Col } from 'antd';
-import SearchPanel from './SearchPanel'
+import SearchPanel from './SearchPanelContainer'
 
-import { withStyles } from '@hoc'
+import withStyles from '@hoc/withStyles';
+
 import inputStyle from 'antd/lib/input/style/index.css'
 import buttonStyle from 'antd/lib/button/style/index.css'
 import styles from './SearchBar.scss'
@@ -49,5 +50,7 @@ const SearchBar = () => (
     </div>
   </Row>
 )
+
+SearchBar.loadData = SearchPanel.loadData
 
 export default withStyles(SearchBar, inputStyle, buttonStyle, styles);

@@ -76,3 +76,4 @@ Press h to open a hovercard with more details.
 #
 dist/
 public/app/
+test.js

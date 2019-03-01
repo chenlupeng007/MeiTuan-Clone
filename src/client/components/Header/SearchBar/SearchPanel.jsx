@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import debounce from 'lodash.debounce'
 
 import { Input } from 'antd';
 import styles from './SearchBar.scss'
@@ -9,9 +10,9 @@ const HotPlaces = (props) => (
   <dl className={styles.hotPlace}>
     <dt>热门搜索</dt>
     {
-      props.hotPlaces.slice(0,5).map((item) => (
-        <dd key={item}>
-          <a href="#">{item}</a>
+      props.hotPlaces.map((item, index) => (
+        <dd key={index}>
+          <a href="#">{item.name}</a>
         </dd>
       ))
     }
@@ -21,9 +22,9 @@ const HotPlaces = (props) => (
 const SearchList = (props) => (
   <dl className={styles.searchList}>
     {
-      props.searchList.map((item) => (
-        <dd key={item}>
-          <a href="#">{item}</a>
+      props.searchList.map((item, index) => (
+        <dd key={index}>
+          <a href="#">{item.name}</a>
         </dd>
       ))
     }
@@ -37,18 +38,34 @@ class SearchPanel extends Component {
     this.state = {
       isFocus: false,
       inputValue: '',
-      hotPlaces: ['故宫博物院', '北京世界公园', '故宫珍宝馆', '颐和园', '北京欢乐谷', '天坛公园', '八达岭长城', '圆明园'],
-      searchList: ['八达岭长城', '北京博物馆', '北京欢乐谷', '北京动物园', '北海公园']
     }
+
+    this.handleChange = this.handleChange.bind(this)
   }
 
-  handleChange(e) {
-    this.setState({
-      inputValue: e.target.value,
+  handleChange = (e) => {
+    this.dealWithInput(e.target.value)
+  }
+
+  dealWithInput = debounce((value)=>{
+    if(!value) {
+      this.setState({
+        inputValue: value,
+      })
+
+      return
+    }
+
+    const { getSearchList, city } = this.props
+    getSearchList({input: value, city: city.replace('市', '')})
+    .then(()=> {
+      this.setState({
+        inputValue: value,
+      })
     })
-  }
+  }, 300)
 
-  handleBlur() {
+  handleBlur = () => {
     setTimeout(() => {
       this.setState({
         isFocus: false,
@@ -56,33 +73,33 @@ class SearchPanel extends Component {
     }, 100);
   }
 
-  handleFocus() {
+  handleFocus = () => {
     this.setState({
       isFocus: true
     })
   }
 
   render() {
-    const {isFocus, inputValue, hotPlaces, searchList } = this.state
+    const { isFocus, inputValue } = this.state
+    const { searchList, hotPlace} = this.props
 
     return (
       <React.Fragment>
         <div className={styles.wrapper}>
           <Search
             placeholder="搜索商家或地点"
-            // onSearch={this.handleSearch.bind(this)}
             enterButton
-            onFocus={this.handleFocus.bind(this)}
-            onBlur={this.handleBlur.bind(this)}
-            onChange={this.handleChange.bind(this)}
+            onFocus={this.handleFocus}
+            onBlur={this.handleBlur}
+            onChange={this.handleChange}
           />
-          {isFocus && !inputValue ? <HotPlaces hotPlaces={hotPlaces} /> : null}
-          {isFocus && inputValue ? <SearchList searchList={searchList} /> : null}
+          {isFocus && !inputValue ? <HotPlaces hotPlaces={hotPlace.slice(0, 7)} /> : null}
+          {isFocus && inputValue ? <SearchList searchList={searchList.slice(0,7)} /> : null}
         </div>
         <p className={styles.suggest}>
           {
-            hotPlaces.map((item) => (
-              <a href="#" key={item}>{item}</a>
+            hotPlace.slice(0, 7).map((item, index) => (
+              <a href="#" key={index}>{item.name}</a>
             ))
           }
         </p>

@@ -3,7 +3,7 @@ import { Switch } from 'react-router-dom'
 import { renderRoutes } from 'react-router-config'
 
 import Empty from '@components/Empty'
-import Layout from '@components/Layout'
+import { Home } from '@components/Home'
 
 const routes = [
   {
@@ -13,9 +13,10 @@ const routes = [
     routes: [
       {
         path: '/',
-        component: Layout,
+        component: Home,
+        loadData: Home.loadData,
         exact: true,
-        key: 'Layout',
+        key: 'Home',
       }
     ]
   }

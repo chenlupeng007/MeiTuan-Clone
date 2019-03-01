@@ -1,3 +1,4 @@
 import Header from './Header'
+import reducer from './reducer'
 
-export { Header };
+export { Header, reducer };

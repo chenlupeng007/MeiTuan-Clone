@@ -18,7 +18,12 @@ const getInitialState = async (path) => {
 
   matchedRoutes.forEach((item) => {
     if (item.route.loadData) {
-      promises.push(item.route.loadData(store))
+      const newPromise = item.route.loadData(store)
+      if(newPromise instanceof Array) {
+        promises.push(...newPromise)
+      } else {
+        promises.push(newPromise)
+      }
     }
   })
 
@@ -34,6 +39,7 @@ const html = async (path) => {
 
 
   const store = await getInitialState(path)
+
   const context = {
     css: []
   }

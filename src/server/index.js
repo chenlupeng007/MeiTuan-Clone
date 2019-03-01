@@ -1,10 +1,13 @@
 import Koa from 'koa'
 import applyDevMids from './applyDevMids'
 import applyProdMids from './applyProdMids'
+import applyRouter from './applyRouter'
 
-const isProduction = process.env.NODE_ENV === 'production';
+const isProduction = process.env.NODE_ENV === 'production'
 
 const app = new Koa()
+
+applyRouter(app)
 
 if (isProduction) {
   applyProdMids(app)

@@ -3,7 +3,7 @@ import React from 'react'
 import { Layout } from 'antd';
 
 import styles from './Footer.scss'
-import { withStyles } from '@hoc'
+import withStyles from '@hoc/withStyles';
 
 const { Footer } = Layout;
 
