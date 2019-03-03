@@ -6,8 +6,10 @@ import { hot } from 'react-hot-loader/root'
 import { Routes } from '@common/routes'
 import configureStore from '@common/store'
 
+const store = configureStore(window.defaultState)
+
 const App = () => (
-  <Provider store={configureStore(window.defaultState)}>
+  <Provider store={store}>
     <BrowserRouter>
       {Routes}
     </BrowserRouter>

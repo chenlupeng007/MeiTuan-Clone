@@ -1,8 +1,9 @@
-const defaultMenu = {
-  artistic: {}
+const defaultHome = {
+  menu: [],
+  artistic: {all: []}
 }
 
-const reducer = (state = defaultMenu, action) => {
+const reducer = (state = defaultHome, action) => {
   switch (action.type) {
     case 'CHANGE_MENU':
       return {...state, ...{ menu: action.menu }}

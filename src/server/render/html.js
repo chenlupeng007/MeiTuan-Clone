@@ -27,6 +27,7 @@ const getInitialState = async (path) => {
     }
   })
 
+
   await Promise.all(promises);
 
   return store
@@ -36,7 +37,6 @@ const html = async (path) => {
   const Path = isProduction ? 'app/': '';
   const link = isProduction ? `<link rel="stylesheet" href="${Path}css/main.css" />` : '';
   const linkVendor = isProduction ? `<link rel="stylesheet" href="${Path}css/vendor.css" />` : '';
-
 
   const store = await getInitialState(path)
 

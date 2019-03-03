@@ -43,13 +43,11 @@ const Detail = (props) => (
 )
 
 class Menu extends Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
 
     this.state = {
       kind: '',
-      menu: props.menu,
-      current: null
     }
 
     this.timer = null
@@ -64,7 +62,6 @@ class Menu extends Component {
     let value = e.target.querySelector('i').className.split('_')[1];
     this.setState({
       kind: value,
-      current: this.state.menu.find((item) => item.type == value)
     })
   }
 
@@ -87,7 +84,10 @@ class Menu extends Component {
   }
 
   render() {
-    const { menu, kind, current } = this.state
+    const { kind } = this.state
+    const { menu } = this.props
+    const current = menu.find((item) => item.type == kind)
+
     return(
       <div className={styles.menu}>
         <List menu={menu} mouseEnter={this.mouseEnter} mouseLeave={this.mouseLeave}/>

@@ -16,33 +16,44 @@
     url(//s0.meituan.net/bs/fe-web-meituan/c19c6e9/font/home-category-iconfont.svg?t=1503027869484#home-category-iconfont) format('svg')
 }
 
-:global(body *){
+body * {
   margin: 0;
   padding: 0;
 }
 
-:global(.ant-layout) {
-  background-color: #fff;
-
-
-  :global(a) {
+a {
+  color: #999;
+  &:hover,&:focus,a:visited {
     color: #999;
   }
 }
 
 :global(.ant-layout-header) {
-  padding : 0;
+  padding: 0;
+  background: #F8F8F8;
   color: #999;
+  width: 100%;
   font-size: 12px;
-  height: auto;
-  background-color: rgb(248, 248, 248);
+  height: 197px;
 }
 
 :global(.ant-layout-footer) {
-  background-color: rgb(248, 248, 248);
+  background-color:#f8f8f8;
+  height: 100%;
 }
 
 :global(.ant-layout-content) {
   display: flex;
   justify-content: center;
+}
+
+.layout_default{
+  -webkit-font-smoothing: antialiased;
+  font-family: "-apple-system",
+  BlinkMacSystemFont,
+  Roboto,
+  "Helvetica Neue",
+  "MIcrosoft YaHei",
+  sans-serif !important;
+  background-color: #F8F8F8;
 }

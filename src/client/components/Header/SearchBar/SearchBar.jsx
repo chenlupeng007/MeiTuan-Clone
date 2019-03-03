@@ -30,7 +30,7 @@ const Nav = () => (
 )
 
 const SearchBar = () => (
-  <Row className={styles.searchrow}>
+  <Row className={styles.row}>
     <div className={styles.searchbar}>
       <Col span={3} className={styles.left}>
         <img

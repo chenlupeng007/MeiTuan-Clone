@@ -6,12 +6,9 @@ import Artistic from './Artistic'
 import { getList } from './actions'
 
 class ArtisticContainer extends React.Component {
-  // constructor(props){
-  //   super(props)
-  // }
 
   componentDidMount() {
-    if (!this.props.list.all) {
+    if (!this.props.list.all.length) {
       const { getList } = this.props
 
       getList({

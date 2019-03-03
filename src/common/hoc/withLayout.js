@@ -13,7 +13,7 @@ import styles from './Layout.scss'
 const withLayout = (DecoratedComponent) => {
   const MyComponent = (props) => (
     <StaticContext.Provider value={props.staticContext}>
-      <Layout>
+      <Layout className ={ styles.layout_default}>
         <Header />
         <DecoratedComponent />
         <Footer />
@@ -24,7 +24,10 @@ const withLayout = (DecoratedComponent) => {
   MyComponent.loadData = (store) => {
     const promises = []
     promises.push(Header.loadData(store))
-    promises.push(...DecoratedComponent.loadData(store))
+    if (DecoratedComponent.loadData) {
+      promises.push(...DecoratedComponent.loadData(store))
+    }
+
     return promises
   }
 
@@ -33,4 +36,4 @@ const withLayout = (DecoratedComponent) => {
   return NewComponent
 }
 
-export default withLayout
+export default withLayout;

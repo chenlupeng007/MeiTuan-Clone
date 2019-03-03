@@ -26,11 +26,12 @@ class MenuContainer extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  menu: state.home.menu
+  menu: state.home.menu,
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  getMenu
+  getMenu,
+  dispatch
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(MenuContainer);
