@@ -5,7 +5,6 @@ import { TopBar } from './TopBar'
 import { SearchBar } from './SearchBar'
 
 import withStyles from '@hoc/withStyles';
-
 import gridStyles from 'antd/lib/grid/style/index.css'
 
 const { Header } = Layout;

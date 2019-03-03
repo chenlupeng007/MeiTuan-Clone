@@ -5,11 +5,9 @@ import { Row, Col } from 'antd';
 import SearchPanel from './SearchPanelContainer'
 
 import withStyles from '@hoc/withStyles';
-
 import inputStyle from 'antd/lib/input/style/index.css'
 import buttonStyle from 'antd/lib/button/style/index.css'
 import styles from './SearchBar.scss'
-
 
 const Nav = () => (
   <ul className={styles.nav}>

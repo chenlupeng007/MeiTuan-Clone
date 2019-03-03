@@ -51,9 +51,7 @@ router.get('/resultsByKeywords', async (ctx) => {
   })
   ctx.body = {
     count: status === 200 ? count : 0,
-    pois: status === 200
-      ? pois
-      : []
+    pois: status === 200 ? pois : []
   }
 })
 

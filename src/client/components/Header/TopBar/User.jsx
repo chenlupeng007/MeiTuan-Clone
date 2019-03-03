@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
 import withStyles from '@hoc/withStyles';
-
 import styles from './User.scss'
 
 class User extends Component {

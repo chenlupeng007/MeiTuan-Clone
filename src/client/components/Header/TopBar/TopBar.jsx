@@ -6,7 +6,6 @@ import User from './User'
 import Navbar from './Nav'
 
 import withStyles from '@hoc/withStyles';
-
 import gridStyles from 'antd/lib/grid/style/index.css'
 import styles from './TopBar.scss'
 

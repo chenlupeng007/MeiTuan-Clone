@@ -5,6 +5,8 @@ import withLayout from '@hoc/withLayout';
 
 import Menu from './MenuContainer'
 import Life from './Life'
+import Artistic from './ArtisticContainer'
+import { getPosition } from '@components/Header/actions'
 
 const { Content } = Layout
 
@@ -19,10 +21,24 @@ const Home = () => (
           <Life/>
         </Col>
       </Row>
+      <Row>
+        <Col span={24}>
+          <Artistic />
+        </Col>
+      </Row>
     </div>
   </Content>
 )
 
-Home.loadData = Menu.loadData
+Home.loadData = (store) => {
+  const promises = []
+  promises.push(Menu.loadData(store))
+
+  const newPromise = store.dispatch(getPosition())
+    .then(() => Artistic.loadData(store))
+  promises.push(newPromise)
+
+  return promises
+}
 
 export default withLayout(Home)

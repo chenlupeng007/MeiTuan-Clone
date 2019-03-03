@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import { Icon } from 'antd'
 
 import withStyles from '@hoc/withStyles';
-
 import styles from './Geometry.scss'
 
 const Geo = (props) => (

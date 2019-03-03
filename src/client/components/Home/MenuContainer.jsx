@@ -19,19 +19,18 @@ class MenuContainer extends React.Component {
 
     return <Menu menu={menu} />
   }
-}
 
-MenuContainer.loadData = (store) => {
-  return store.dispatch(getMenu())
+  static loadData = (store) => {
+    return store.dispatch(getMenu())
+  }
 }
 
 const mapStateToProps = state => ({
-  menu: state.menu
+  menu: state.home.menu
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   getMenu
 }, dispatch);
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(MenuContainer);

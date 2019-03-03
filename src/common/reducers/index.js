@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 
-import menu from '@components/Home/reducer'
+import home from '@components/Home/reducer'
 import header from '@components/Header/reducer'
 
 const composedReducer = combineReducers({
-  menu,
+  home,
   header
 });
 

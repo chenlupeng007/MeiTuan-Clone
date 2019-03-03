@@ -24,7 +24,7 @@ const withLayout = (DecoratedComponent) => {
   MyComponent.loadData = (store) => {
     const promises = []
     promises.push(Header.loadData(store))
-    promises.push(DecoratedComponent.loadData(store))
+    promises.push(...DecoratedComponent.loadData(store))
     return promises
   }
 

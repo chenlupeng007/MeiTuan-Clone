@@ -6,6 +6,16 @@ import SearchPanel from './SearchPanel'
 import { getSearchList, getHotPlace } from '../actions'
 
 class SearchPanelContainer extends React.Component {
+  componentDidMount() {
+    if (!this.props.hotPlace) {
+      const { getHotPlace, city } = this.props
+
+      getHotPlace({
+        city: city.replace('市', '')
+      })
+    }
+  }
+
   render() {
     const { hotPlace, searchList, getSearchList, city } = this.props
 
@@ -32,7 +42,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-  getSearchList
+  getSearchList,
+  getHotPlace
 }, dispatch);
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchPanelContainer);
