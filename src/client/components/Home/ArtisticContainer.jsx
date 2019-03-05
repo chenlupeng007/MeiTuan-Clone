@@ -8,14 +8,12 @@ import { getList } from './actions'
 class ArtisticContainer extends React.Component {
 
   componentDidMount() {
-    if (!this.props.list.all.length) {
-      const { getList } = this.props
+    const { getList } = this.props
 
-      getList({
-        keyword: '景点',
-        city: this.props.city
-      })
-    }
+    getList({
+      keyword: '景点',
+      city: this.props.city
+    })
   }
 
   getArtList = (keyword, kind) => {

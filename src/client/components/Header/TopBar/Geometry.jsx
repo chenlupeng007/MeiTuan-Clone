@@ -9,7 +9,6 @@ const Geo = (props) => (
   <div>
     <Icon type="environment" theme="filled" /> {props.city}
     <Link to='/changeCity' className={styles.changeCity}>切换城市</Link>
-    [香河 廊坊 天津]
   </div>
 )
 

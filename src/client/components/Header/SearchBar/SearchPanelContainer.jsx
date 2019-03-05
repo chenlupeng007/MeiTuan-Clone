@@ -7,13 +7,11 @@ import { getSearchList, getHotPlace } from '../actions'
 
 class SearchPanelContainer extends React.Component {
   componentDidMount() {
-    if (!this.props.hotPlace) {
-      const { getHotPlace, city } = this.props
+    const { getHotPlace, city } = this.props
 
-      getHotPlace({
-        city: city.replace('市', '')
-      })
-    }
+    getHotPlace({
+      city: city.replace('市', '')
+    })
   }
 
   render() {

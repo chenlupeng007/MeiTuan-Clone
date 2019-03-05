@@ -11,8 +11,8 @@ import styles from './TopBar.scss'
 
 const TopBar = () => (
   <Row className={styles.topbar}>
-    <Col span={5}><Geometry /></Col>
-    <Col span={5}><User /></Col>
+    <Col span={3}><Geometry /></Col>
+    <Col span={7}><User /></Col>
     <Col span={14}><Navbar /></Col>
   </Row>
 )
