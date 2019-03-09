@@ -33,7 +33,7 @@ const getInitialState = async (path) => {
   return store
 }
 
-const html = async (path) => {
+const html = async (path, search) => {
   const Path = isProduction ? 'app/': '';
   const link = isProduction ? `<link rel="stylesheet" href="${Path}css/main.css" />` : '';
   const linkVendor = isProduction ? `<link rel="stylesheet" href="${Path}css/vendor.css" />` : '';
@@ -43,10 +43,9 @@ const html = async (path) => {
   const context = {
     css: []
   }
-
   const App = () => (
     <Provider store={store}>
-      <StaticRouter location={path} context={ context }>
+      <StaticRouter location={{pathname: path, search: search}} context={ context }>
         { Routes }
       </StaticRouter>
     </Provider>

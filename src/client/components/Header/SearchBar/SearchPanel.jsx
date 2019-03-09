@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import debounce from 'lodash.debounce'
 
 import { Input } from 'antd';
@@ -12,7 +13,7 @@ const HotPlaces = (props) => (
     {
       props.hotPlaces.map((item, index) => (
         <dd key={index}>
-          <a href="#">{item.name}</a>
+          <a href='#'>{item.name}</a>
         </dd>
       ))
     }
@@ -99,7 +100,7 @@ class SearchPanel extends Component {
         <p className={styles.suggest}>
           {
             hotPlace.slice(0, 7).map((item, index) => (
-              <a href="#" key={index}>{item.name}</a>
+              <Link to={{ pathname: '/products', search: `?keyword=${item.name}` }} key={index}>{item.name}</Link>
             ))
           }
         </p>

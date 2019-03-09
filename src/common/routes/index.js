@@ -5,6 +5,7 @@ import { renderRoutes } from 'react-router-config'
 import Empty from '@components/Empty'
 import { Home } from '@components/Home'
 import { ChangeCity } from '@components/ChangeCity'
+import { Product } from '@components/Product'
 
 const routes = [
   {
@@ -24,7 +25,13 @@ const routes = [
         component: ChangeCity,
         loadData: ChangeCity.loadData,
         exact: true,
-        key: 'change-city',
+        key: 'changeCity',
+      },
+      {
+        path: '/products',
+        component: Product,
+        loadData: Product.loadData,
+        key: 'Product'
       }
     ]
   }

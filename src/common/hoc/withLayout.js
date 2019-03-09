@@ -15,7 +15,7 @@ const withLayout = (DecoratedComponent) => {
     <StaticContext.Provider value={props.staticContext}>
       <Layout className ={ styles.layout_default}>
         <Header />
-        <DecoratedComponent />
+        <DecoratedComponent {...props}/>
         <Footer />
       </Layout>
     </StaticContext.Provider>
