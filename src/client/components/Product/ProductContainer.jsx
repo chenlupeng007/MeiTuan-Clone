@@ -18,6 +18,16 @@ class ProductContainer extends Component {
     })
   }
 
+  componentWillUpdate() {
+    const { city, changeProductData } = this.props
+    let urlParams = new URLSearchParams(this.props.location.search);
+    let keyword = urlParams.get('keyword')
+    const params = { city, keyword }
+    getProductData(params).then(data => {
+      changeProductData(data)
+    })
+  }
+
   render() {
     let params = new URLSearchParams(this.props.location.search);
     let keyword = params.get('keyword')

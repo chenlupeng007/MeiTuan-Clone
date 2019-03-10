@@ -42,7 +42,7 @@ const Item = ({meta}) => (
         })(meta)
       }
       <span>{ meta.rate }分</span>
-      <span class={styles.total}>{ meta.comment }人评论</span>
+      <span className={styles.total}>{ meta.comment }人评论</span>
       <p>
         <span>{ meta.type }</span>
         <span>{ meta.addr }</span>

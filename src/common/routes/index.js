@@ -6,6 +6,7 @@ import Empty from '@components/Empty'
 import { Home } from '@components/Home'
 import { ChangeCity } from '@components/ChangeCity'
 import { Product } from '@components/Product'
+import { Detail } from '@components/Detail'
 
 const routes = [
   {
@@ -31,7 +32,15 @@ const routes = [
         path: '/products',
         component: Product,
         loadData: Product.loadData,
-        key: 'Product'
+        exact: true,
+        key: 'product'
+      },
+      {
+        path: '/detail',
+        component: Detail,
+        loadData: Detail.loadData,
+        exact: true,
+        key: 'detail'
       }
     ]
   }
